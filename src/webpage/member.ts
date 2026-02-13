@@ -188,6 +188,7 @@ class Member extends SnowFlake {
 		);
 		form.addTextInput(I18n.member["nick:"](), "nick", {
 			initText: this.nick,
+            maxLength: this.localuser.instanceLimits.user?.maxUsername ?? 9999,
 		});
 		dio.show();
 	}
@@ -214,6 +215,7 @@ class Member extends SnowFlake {
 
 			const nicky = settingsLeft.addTextInput(I18n.member["nick:"](), () => {}, {
 				initText: this.nick || "",
+                maxLength: this.localuser.instanceLimits.user?.maxUsername ?? 9999,
 			});
 			nicky.watchForChange((_) => {
 				hypomember.nick = _;
@@ -294,6 +296,7 @@ class Member extends SnowFlake {
 			});
 			const bioBox = settingsLeft.addMDInput(I18n.bio(), (_) => {}, {
 				initText: this.bio,
+                maxLength: this.localuser.instanceLimits.user?.maxBio ?? 9999
 			});
 			bioBox.watchForChange((_) => {
 				newbio = _;
