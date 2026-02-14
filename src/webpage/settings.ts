@@ -1876,8 +1876,8 @@ class Form implements OptionsElement<object> {
 		return colorInput;
 	}
 
-	addMDInput(label: string, formName: string, {initText = "", required = false} = {}) {
-		const mdInput = this.options.addMDInput(label, (_) => {}, {initText});
+	addMDInput(label: string, formName: string, {initText = "", required = false, maxLength=9999} = {}) {
+		const mdInput = this.options.addMDInput(label, (_) => {}, {initText, maxLength});
 		this.names.set(formName, mdInput);
 		if (required) {
 			this.required.add(mdInput);

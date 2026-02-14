@@ -416,6 +416,7 @@ class Channel extends SnowFlake {
 			});
 			form.addMDInput(I18n.channel["topic:"](), "topic", {
 				initText: this.topic,
+                maxLength: this.localuser.instanceLimits.channel?.maxTopic ?? 9999,
 			});
 			form.addImageInput(I18n.channel.icon(), "icon", {
 				initImg: this.icon ? this.iconUrl() : undefined,
