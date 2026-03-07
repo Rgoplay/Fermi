@@ -21,6 +21,12 @@ import "./404.js";
 if (window.location.pathname === "/app") {
 	window.location.pathname = "/channels/@me";
 }
+
+if ('serviceWorker' in navigator) {
+    await navigator.serviceWorker.register('/serviceWorker.js');
+    console.log("Service worker registered");
+}
+
 export interface CustomHTMLDivElement extends HTMLDivElement {
 	markdown: MarkDown;
 }
